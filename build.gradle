@@ -65,5 +65,8 @@ sonarqube {
         property 'sonar.host.url', 'http://localhost:9000'
         property "sonar.login", "jenkins"
         property "sonar.password", "jenkins"
+        property "sonar.pullrequest.base", "main"
+        property "sonar.pullrequest.branch", "dev"
+        property "sonar.pullrequest.key", "1234"
     }
 }
