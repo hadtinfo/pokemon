@@ -67,7 +67,7 @@ pipeline {
       }
       stage('Promote to Environments') {
         when {
-          branch 'main'
+          branch 'master'
         }
         steps {
           dir ('./charts/spring-boot-web-gradle') {
