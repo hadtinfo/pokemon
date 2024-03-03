@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-      label "master"
-    }
+    agent any
     environment {
       ORG               = 'jenkinsx'
       APP_NAME          = 'spring-boot-web-gradle'
