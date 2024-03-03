@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     // inline
-                    sh returnStdout: true, script: './gradlew :test --tests "stepDefinitions.api.RunCukeTest"'
+                    sh returnStdout: true, script: './gradlew test'
                     RESULT_TEST = sh returnStdout: true, script: 'tail -n -5 test.log'
                 }
             }
