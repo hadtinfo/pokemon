@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'org.springframework.boot' version '2.7.12'
-    id 'io.spring.dependency-management' version '1.1.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'jacoco'
     id "org.barfuin.gradle.jacocolog" version "3.1.0"
     id 'com.avast.gradle.docker-compose' version "0.17.6"
@@ -36,8 +36,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 //    implementation 'io.micrometer:micrometer-tracing-bridge-brave'
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
-    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.16.22'
-    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.16.22'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
     runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
