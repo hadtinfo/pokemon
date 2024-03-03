@@ -14,7 +14,7 @@ pipeline {
                     // inline
                     sh returnStdout: true, script: './gradlew test'
 //                     RESULT_TEST = sh returnStdout: true, script: 'tail -n -5 test.log'
-                    recordCoverage tools: [[parser: 'JACOCO', pattern: '**/jacoco/jacoco.xml']], sourceCodeRetention: 'EVERY_BUILD',
+                    recordCoverage tools: [[parser: 'JACOCO']], sourceCodeRetention: 'EVERY_BUILD',
             qualityGates: [ [threshold: 90.0, metric: 'LINE', baseline: 'PROJECT', criticality: 'UNSTABLE']],
             sourceDirectories: [[path: 'plugin/src/main/java']]
                 }
