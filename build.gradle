@@ -5,7 +5,6 @@ plugins {
     id 'jacoco'
     id "org.barfuin.gradle.jacocolog" version "3.1.0"
     id 'com.avast.gradle.docker-compose' version "0.17.6"
-    id "org.sonarqube" version "4.4.1.3373"
 }
 
 group = 'com.pokemonreview'
@@ -58,12 +57,4 @@ jacocoTestReport {
 
 tasks.named('sonarqube').configure {
     dependsOn test
-}
-
-sonarqube {
-    properties {
-        property 'sonar.host.url', 'http://localhost:9000'
-        property "sonar.login", "jenkins"
-        property "sonar.password", "jenkins"
-    }
 }
