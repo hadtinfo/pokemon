@@ -13,6 +13,7 @@ pipeline {
                 script {
                     // inline
                     sh returnStdout: true, script: './gradlew test'
+                    sh returnStdout: true, script: './gradlew diffCoverageReport'
 //                     RESULT_TEST = sh returnStdout: true, script: 'tail -n -5 test.log'
 //         recordIssues tools: [java(), javaDoc()], aggregatingResults: 'true', id: 'java', name: 'Java', filters:[excludeFile('.*Assert.java')]
 //         recordIssues tool: errorProne(), healthy: 1, unhealthy: 20
