@@ -26,9 +26,14 @@ repositories {
     mavenCentral()
 }
 
+jacoco {
+    toolVersion = "0.8.5"
+    reportsDir = file("${buildDir}/jacoco")
+}
+
 diffCoverageReport {
     diffSource {
-        git.compareWith 'refs/remotes/origin/main'
+        git.compareWith 'refs/remotes/origin/master'
     }
 //    violationRules.failIfCoverageLessThan 0.9
     reports {
@@ -60,16 +65,21 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
-    finalizedBy jacocoTestReport // report is always generated after tests run
+//    finalizedBy jacocoTestReport // report is always generated after tests run
 }
-jacocoTestReport {
-    dependsOn test // tests are required to run before generating the report
-    reports {
-        xml.required = true
-        csv.required = false
-        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
-    }
-}
+
+
+
+//jacocoTestReport {
+//    dependsOn test // tests are required to run before generating the report
+//    reports {
+//        xml.required = true
+//        csv.required = false
+//        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+//    }
+//}
+
+//tasks.named("diffCoverage").configure { dependsOn("test") }
 
 //tasks.named('sonarqube').configure {
 //    dependsOn test
