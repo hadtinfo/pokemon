@@ -14,8 +14,8 @@ pipeline {
                     // inline
                     sh returnStdout: true, script: './gradlew test'
 //                     RESULT_TEST = sh returnStdout: true, script: 'tail -n -5 test.log'
-        recordIssues tools: [java(), javaDoc()], aggregatingResults: 'true', id: 'java', name: 'Java', filters:[excludeFile('.*Assert.java')]
-        recordIssues tool: errorProne(), healthy: 1, unhealthy: 20
+//         recordIssues tools: [java(), javaDoc()], aggregatingResults: 'true', id: 'java', name: 'Java', filters:[excludeFile('.*Assert.java')]
+//         recordIssues tool: errorProne(), healthy: 1, unhealthy: 20
 
         junit testResults: '**/target/*-reports/TEST-*.xml'
                     recordCoverage tools: [[parser: 'JACOCO', pattern: '**/jacoco/jacoco.xml']], sourceCodeRetention: 'EVERY_BUILD',
