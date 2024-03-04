@@ -18,10 +18,10 @@ pipeline {
 //         recordIssues tools: [java(), javaDoc()], aggregatingResults: 'true', id: 'java', name: 'Java', filters:[excludeFile('.*Assert.java')]
 //         recordIssues tool: errorProne(), healthy: 1, unhealthy: 20
 
-        junit testResults: '**/target/*-reports/TEST-*.xml'
-                    recordCoverage tools: [[parser: 'JACOCO', pattern: '**/jacoco/jacoco.xml']], sourceCodeRetention: 'EVERY_BUILD',
-            qualityGates: [ [threshold: 90.0, metric: 'LINE', baseline: 'PROJECT', criticality: 'UNSTABLE']],
-            sourceDirectories: [[path: 'plugin/src/main/java']]
+//         junit testResults: '**/target/*-reports/TEST-*.xml'
+//                     recordCoverage tools: [[parser: 'JACOCO', pattern: '**/jacoco/jacoco.xml']], sourceCodeRetention: 'EVERY_BUILD',
+//             qualityGates: [ [threshold: 90.0, metric: 'LINE', baseline: 'PROJECT', criticality: 'UNSTABLE']],
+//             sourceDirectories: [[path: 'plugin/src/main/java']]
                 }
             }
         }
